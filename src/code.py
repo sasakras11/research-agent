@@ -34,7 +34,7 @@ nest_asyncio.apply()
 load_dotenv()
 
 # Initialize TavilyClient
-tavily_client = TavilyClient()
+tavily_client = TavilyClient(api_key=os.getenv('TAVILY_API_KEY'))
 
 # Set LiteLLM verbosity
 litellm.set_verbose = False
@@ -44,19 +44,15 @@ MAX_WEB_SEARCH_LOOPS = 2
 
 # Query writer system prompt
 query_writer_system_prompt = """
-Your goal is to generate a targeted web search query.
+Generate 7-10 specific search queries to thoroughly research {company_website}.
+Consider:
+- Company website sections (about, blog, careers)
+- Financial data sources (Crunchbase, LinkedIn)
+- News mentions and press releases
+- Technical documentation
+- Product reviews
 
-The query will gather information related to a specific topic.
-
-Topic:
-{research_topic}
-
-Return your query as a JSON object:
-{{
-    "query": "string",
-    "aspect": "string",
-    "rationale": "string"
-}}
+Return JSON with "queries" array.
 """
 
 # Summarizer system prompt
@@ -83,21 +79,6 @@ In both cases:
 - DO NOT add a References or Works Cited section.
 """
 
-reflection_system_prompt = """You are an expert research assistant analyzing a summary about {research_topic}.
-
-Your tasks:
-1. Identify knowledge gaps or areas that need deeper exploration
-2. Generate a follow-up question that would help expand your understanding
-3. Focus on technical details, implementation specifics, or emerging trends that weren't fully covered
-
-Ensure the follow-up question is self-contained and includes necessary context for web search.
-
-Return your analysis as a JSON object:
-{{
-    "knowledge_gap": "string",
-    "follow_up_query": "string"
-}}"""
-
 def format_sources(sources):
     """
     Formats a list of source dictionaries into a structured text for LLM input.
@@ -120,7 +101,10 @@ def format_sources(sources):
 
 @dataclass
 class ResearchDeps:
-    research_topic: str = None
+    company_website: str = None
+    prompt_template: str = None
+    search_topics: List[str] = field(default_factory=list)
+    current_topic_index: int = 0
     search_query: str = None
     current_summary: str = None
     final_summary: str = None
@@ -129,28 +113,29 @@ class ResearchDeps:
     research_loop_count: int = 0
 
 async def generate_search_query(ctx: RunContext[ResearchDeps]) -> str:
-    """Generate a query for web search"""
-    print("==== CALLING generate_search_query... ====")
-    response = completion(
-        model="gpt-4o-mini",
-        #or LAMA
-        messages=[{
-            "content": query_writer_system_prompt.format(research_topic=ctx.deps.research_topic),
-            "role": "system" #double check if I need to add anything
-        }],
-        max_tokens=500,
-        format="json"
-    )
-
+    if not ctx.deps.search_topics:
+        response = completion(
+            model="gpt-4o-mini",
+            messages=[{
+                "content": query_writer_system_prompt.format(company_website=ctx.deps.company_website),
+                "role": "system"
+            }],
+            response_format={"type": "json_object"}
+        )
+        data = json.loads(response.choices[0].message.content)
+        ctx.deps.search_topics = data["queries"]
     
-    search_query = json.loads(response.choices[0].message.content)
-    
-    ctx.deps.search_query = search_query["query"]
-    return "perform_web_search"
+    if ctx.deps.current_topic_index < len(ctx.deps.search_topics):
+        ctx.deps.search_query = ctx.deps.search_topics[ctx.deps.current_topic_index]
+        ctx.deps.current_topic_index += 1
+        return "perform_web_search"
+    return "finalize_summary"
 
 async def perform_web_search(ctx: RunContext[ResearchDeps]) -> str:
     """Do search and collect information"""
     print("==== CALLING perform_web_search... ====")
+    print(f"Search query: {ctx.deps.search_query}")
+
     search_results = tavily_client.search(ctx.deps.search_query, include_raw_content=False, max_results=4)
     search_string = format_sources(search_results["results"])
     ctx.deps.sources.extend(search_results["results"])
@@ -158,67 +143,51 @@ async def perform_web_search(ctx: RunContext[ResearchDeps]) -> str:
     ctx.deps.research_loop_count += 1
     return "summarize_sources"
 
+async def continue_or_stop_research(ctx: RunContext[ResearchDeps]) -> str:
+    if ctx.deps.research_loop_count >= MAX_WEB_SEARCH_LOOPS:
+        return "finalize_summary"
+    if ctx.deps.current_topic_index < len(ctx.deps.search_topics):
+        return "generate_search_query"
+    return "finalize_summary"
 
+
+# Update the summarize_sources function to use current search topic
 async def summarize_sources(ctx: RunContext[ResearchDeps]) -> str:
     """Summarize the gathered sources"""
-    # logger.info("==== CALLING summarize_sources... ====")
     print("==== CALLING summarize_sources... ====")
     current_summary = ctx.deps.current_summary
     most_recent_web_research = ctx.deps.latest_web_search_result
+    
+    # Get current search query from the list
+    current_query = ctx.deps.search_topics[ctx.deps.current_topic_index-1]
+    
+    user_prompt = f"Update summary with findings from search: '{current_query}'\nResults:\n{most_recent_web_research}"
     if current_summary:
-        user_prompt = (f"Extend the existing summary: {current_summary}\n\n"
-                      f"Include new search results: {most_recent_web_research} "
-                      f"That addresses the following topic: {ctx.deps.research_topic}")
-    else:
-        user_prompt = (
-            f"Generate a summary of these search results: {most_recent_web_research} "
-            f"That addresses the following topic: {ctx.deps.research_topic}"
-        )
+        user_prompt = f"Current summary: {current_summary}\nAdd new findings from '{current_query}':\n{most_recent_web_research}"
 
     response = completion(
         model="gpt-4o-mini",
         messages=[
-            {"content": summarizer_system_prompt.format(research_topic=ctx.deps.research_topic),"role": "system"},
-            {"content": user_prompt,"role": "user"}
+            {"content": summarizer_system_prompt, "role": "system"},
+            {"content": user_prompt, "role": "user"}
         ],
         max_tokens=1000,
     )
     ctx.deps.current_summary = response.choices[0].message.content
-    return "reflect_on_summary"
-
-async def reflect_on_summary(ctx: RunContext[ResearchDeps]) -> str:
-    """Reflect on the summary and generate a follow-up query"""
-    # logger.info("==== CALLING reflect_on_summary... ====")
-    print("==== CALLING reflect_on_summary... ====\n\n")
-    response = completion(
-        model="gpt-4o-mini",
-        messages=[
-            {"content": reflection_system_prompt.format(research_topic=ctx.deps.research_topic),"role": "system"},
-            {"content": f"Identify a knowledge gap and generate a follow-up web search query based on our existing knowledge: {ctx.deps.current_summary}","role": "user"}
-        ],
-        max_tokens=500,
-        response_format={ "type": "json_object" }
-    )
-    follow_up_query = json.loads(response.choices[0].message.content)
-    ctx.deps.search_query = follow_up_query["follow_up_query"]
     return "continue_or_stop_research"
+
 
 async def finalize_summary(ctx: RunContext[ResearchDeps]) -> str:
     """Finalize the summary"""
     print("==== CALLING finalize_summary... ====")
-    all_sources = format_sources(ctx.deps.sources)
-    ctx.deps.final_summary = f"## Summary:\n\n{ctx.deps.current_summary}\n\n{all_sources}"
-    return f"STOP and return this summary: {ctx.deps.final_summary}"
+    all_sources = "\n".join([f"- {s['url']}" for s in ctx.deps.sources])
+    ctx.deps.final_summary = f"""## Comprehensive Report for {ctx.deps.company_website}
+    
+{ctx.deps.current_summary}
 
-
-async def continue_or_stop_research(ctx: RunContext[ResearchDeps]) -> str:
-    """Decide to continue the research or stop based on the follow-up query"""
-    print("==== CALLING continue_or_stop_research... ====")
-    if ctx.deps.research_loop_count >= MAX_WEB_SEARCH_LOOPS:
-        await finalize_summary(ctx)
-        return "finalize_summary"
-    else:
-        return f"Iterations so far: {ctx.deps.research_loop_count}.\n\ngenerate_search_query"
+### Sources Consulted:
+{all_sources}"""
+    return f"STOP: Research completed all topics"
 
 
 
@@ -231,13 +200,96 @@ default_system_prompt = """You are a researcher. You need to use your tools and 
 You must STOP your research if you have done {max_loop} iterations.
 """
 
-research_agent = Agent(model, system_prompt=default_system_prompt.format(max_loop=MAX_WEB_SEARCH_LOOPS),
-                    deps_type=ResearchDeps, tools=[Tool(generate_search_query), Tool(perform_web_search),
-                                                Tool(summarize_sources), Tool(reflect_on_summary),
-                                                Tool(finalize_summary), Tool(continue_or_stop_research)])
+research_agent = Agent(
+    model, 
+    system_prompt=default_system_prompt.format(max_loop=MAX_WEB_SEARCH_LOOPS),
+    deps_type=ResearchDeps, 
+    tools=[
+        Tool(generate_search_query), 
+        Tool(perform_web_search),
+        Tool(summarize_sources),
+        Tool(finalize_summary), 
+        Tool(continue_or_stop_research)
+    ]
+)
 
-topic = 'how to use SmolLM models?'
-research_deps = ResearchDeps(research_topic=topic)
+website = "https://linktr.ee/"
+prompt_template = """
+Using my input website URL 
 
-result = research_agent.run_sync(topic, deps=research_deps)
+website: /{company_website}/
+
+
+, conduct exhaustive research on the company and provide a detailed analysis of everything you can find. 
+You MUST spend at least 15,000 tokens researching this company to ensure comprehensive coverage.
+RESEARCH REQUIREMENTS:
+
+Investigate EVERY available source:
+
+
+Complete company website and subpages
+LinkedIn (company and executive profiles)
+Crunchbase profile
+Last 2 years of news articles
+Press releases
+Partner announcements
+Client case studies
+Industry analysis
+Employee reviews
+Patent databases
+Job postings
+
+
+Find and analyze details about:
+
+
+Complete founding story and history
+ALL executive backgrounds
+Every product and service
+Technical specifications
+ALL client case studies
+Every partnership
+Latest developments
+Market strategy
+Company culture
+Industry awards
+
+
+Your output MUST include:
+
+
+Comprehensive company overview (~1000 chars)
+Detailed technical analysis (~1000 chars)
+Specific client examples and metrics (~800 chars)
+Recent news and developments (~600 chars)
+Market position analysis (~600 chars)
+Additional findings (~500 chars)
+
+
+For EVERY piece of information:
+
+
+Find multiple supporting sources
+Get specific examples
+Include actual metrics when available
+Look for recent updates
+Cross-reference with other sources
+
+CRITICAL REQUIREMENTS:
+
+Minimum output: 4,000 characters
+Must include specific dates, numbers, and metrics
+Must provide actual client examples with results
+Must detail ALL products/services
+Must include latest developments (last 6 months)
+Must provide partnership details
+Must cross-reference everything
+
+Remember: You MUST spend at least 15,000 tokens on research. My job and a $7,000 bonus depend 
+on finding EVERYTHING about this company. Never stop at surface information - dig deeper 
+for specifics, examples, and details
+"""
+research_deps = ResearchDeps(company_website=website, prompt_template=prompt_template)
+result = research_agent.run_sync(website, deps=research_deps)
 print(research_deps.final_summary)
+
