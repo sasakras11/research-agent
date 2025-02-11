@@ -7,9 +7,5 @@ python-dotenv==0.19.1
 requests==2.32.3
 openai==1.61.1
 tavily-python==0.5.1
-<<<<<<< HEAD
+pydantic-ai==0.0.1
 werkzeug==2.0.3
-=======
-werkzeug==2.0.3 
-python-dotenv==0.19.1
->>>>>>> 08efa5cd172fa7bdf60036953a46947d5f9d88f5
