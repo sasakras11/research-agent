@@ -1,6 +1,6 @@
 class ResearchPrompts:
     QUERY_WRITER = """
-    Generate 7-10 specific search queries to thoroughly research {company_website}.
+    Generate 12-15 specific search queries to thoroughly research {company_website}.
     Consider:
     - Company website sections (about, blog, careers)
     - Financial data sources (Crunchbase, LinkedIn)

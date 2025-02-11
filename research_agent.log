@@ -58,3 +58,560 @@ LiteLLM completion() model= gpt-4o-mini; provider = openai
 2025-02-10 16:13:10,460 - INFO - Finalizing research summary...
 2025-02-10 16:13:11,269 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-10 16:13:11,275 - INFO - 127.0.0.1 - - [10/Feb/2025 16:13:11] "POST /research HTTP/1.1" 200 -
+2025-02-10 19:00:59,550 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-10 19:00:59,550 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 19:00:59,567 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:01:02,509 - WARNING -  * Debugger is active!
+2025-02-10 19:01:02,523 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:01:07,218 - INFO - 127.0.0.1 - - [10/Feb/2025 19:01:07] "GET / HTTP/1.1" 200 -
+2025-02-10 19:01:09,265 - INFO - 127.0.0.1 - - [10/Feb/2025 19:01:09] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2025-02-10 19:01:14,910 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:14,944 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:01:18,474 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:18,496 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:01:19,154 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:19,156 - INFO - Performing web search with query: site:data-mind.pro about us section
+2025-02-10 19:01:34,000 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:34,004 - INFO - Summarizing sources...
+2025-02-10 19:01:34,005 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:01:37,267 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:37,269 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:01:37,948 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:38,553 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:39,417 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:39,420 - INFO - Performing web search with query: site:data-mind.pro blog latest posts
+2025-02-10 19:01:53,105 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:53,113 - INFO - Summarizing sources...
+2025-02-10 19:01:53,114 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:01:56,486 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:56,929 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:01:57,654 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:58,230 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:58,236 - INFO - Finalizing research summary...
+2025-02-10 19:01:59,114 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:01:59,120 - INFO - 127.0.0.1 - - [10/Feb/2025 19:01:59] "POST /research HTTP/1.1" 200 -
+2025-02-10 19:05:59,159 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:05:59,160 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:05:59,826 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:06:03,969 - WARNING -  * Debugger is active!
+2025-02-10 19:06:03,977 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:06:04,923 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:04,937 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:05,392 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:06:08,375 - WARNING -  * Debugger is active!
+2025-02-10 19:06:08,382 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:06:18,222 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:18,230 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:18,970 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:06:21,915 - WARNING -  * Debugger is active!
+2025-02-10 19:06:21,923 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:06:28,573 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:28,585 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:06:29,320 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:06:32,316 - WARNING -  * Debugger is active!
+2025-02-10 19:06:32,324 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:06:46,510 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/prompts.py', reloading
+2025-02-10 19:06:46,518 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/prompts.py', reloading
+2025-02-10 19:06:47,782 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:06:50,855 - WARNING -  * Debugger is active!
+2025-02-10 19:06:50,863 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:07:14,914 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:14,984 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:07:23,293 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:23,310 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:07:23,925 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:23,935 - INFO - Performing web search with query: site:epam.com about company overview
+2025-02-10 19:07:27,795 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:27,806 - INFO - Summarizing sources...
+2025-02-10 19:07:27,807 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:07:32,905 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:32,908 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:07:33,679 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:34,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:34,963 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:34,966 - INFO - Performing web search with query: site:epam.com careers job openings
+2025-02-10 19:07:38,825 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:38,836 - INFO - Summarizing sources...
+2025-02-10 19:07:38,836 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:07:46,269 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:46,276 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:07:47,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:47,801 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:48,432 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:48,435 - INFO - Performing web search with query: site:epam.com blog latest articles
+2025-02-10 19:07:52,210 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:07:52,268 - INFO - Summarizing sources...
+2025-02-10 19:07:52,269 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:08:01,572 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:01,576 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:08:02,952 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:03,653 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:04,278 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:04,281 - INFO - Performing web search with query: EPAM Systems company profile site:crunchbase.com
+2025-02-10 19:08:10,013 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:10,017 - INFO - Summarizing sources...
+2025-02-10 19:08:10,018 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:08:17,561 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:17,564 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:08:18,372 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:18,980 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:19,710 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:19,719 - INFO - Performing web search with query: EPAM Systems financial data site:linkedin.com
+2025-02-10 19:08:22,470 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:22,474 - INFO - Summarizing sources...
+2025-02-10 19:08:22,476 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:08:30,812 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:30,814 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:08:32,456 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:33,458 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:34,287 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:34,292 - INFO - Performing web search with query: EPAM Systems Inc news releases site:businesswire.com
+2025-02-10 19:08:39,462 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:39,467 - INFO - Summarizing sources...
+2025-02-10 19:08:39,468 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:08:48,546 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:48,553 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:08:49,519 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:50,393 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:50,397 - INFO - Finalizing research summary...
+2025-02-10 19:08:51,637 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:08:51,648 - INFO - 127.0.0.1 - - [10/Feb/2025 19:08:51] "POST /research HTTP/1.1" 200 -
+2025-02-10 19:14:01,106 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/web_scraper.py', reloading
+2025-02-10 19:14:02,125 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:14:05,882 - WARNING -  * Debugger is active!
+2025-02-10 19:14:05,891 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:14:53,973 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/dependencies.py', reloading
+2025-02-10 19:14:53,978 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/dependencies.py', reloading
+2025-02-10 19:14:54,603 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:14:58,275 - WARNING -  * Debugger is active!
+2025-02-10 19:14:58,284 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:15:02,112 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:15:02,121 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:15:02,744 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:15:06,769 - WARNING -  * Debugger is active!
+2025-02-10 19:15:06,781 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:15:34,097 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:15:34,132 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:15:34,406 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-02-10 19:15:34,431 - INFO - 127.0.0.1 - - [10/Feb/2025 19:15:34] "[35m[1mPOST /research HTTP/1.1[0m" 500 -
+2025-02-10 19:16:36,322 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/config.py', reloading
+2025-02-10 19:16:36,717 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:16:40,762 - WARNING -  * Debugger is active!
+2025-02-10 19:16:40,772 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:17:15,761 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/agent.py', reloading
+2025-02-10 19:17:16,341 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:17:36,756 - ERROR - Configuration error: Invalid or missing OPENAI_API_KEY
+2025-02-10 19:18:17,307 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-10 19:18:17,307 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 19:18:17,317 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:18:20,113 - WARNING -  * Debugger is active!
+2025-02-10 19:18:20,126 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:18:25,550 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:25,583 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:18:27,839 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:27,859 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:18:28,497 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:28,500 - INFO - Performing web search with query: site:pump.co about us section
+2025-02-10 19:18:38,645 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:38,649 - INFO - Summarizing sources...
+2025-02-10 19:18:38,650 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:18:44,257 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:44,262 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:18:45,064 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:45,593 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:46,850 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:46,901 - INFO - Performing web search with query: site:pump.co blog latest posts
+2025-02-10 19:18:58,176 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:18:58,179 - INFO - Summarizing sources...
+2025-02-10 19:18:58,182 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:19:06,381 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:06,384 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:19:07,073 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:07,918 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:08,542 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:08,546 - INFO - Performing web search with query: site:pump.co careers job openings
+2025-02-10 19:19:18,919 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:18,923 - INFO - Summarizing sources...
+2025-02-10 19:19:18,923 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:19:23,886 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:23,889 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:19:24,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:25,217 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:26,039 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:26,043 - INFO - Performing web search with query: Pump company profile site:crunchbase.com
+2025-02-10 19:19:27,955 - ERROR - Error scraping https://www.crunchbase.com/organization/keen-pump-company-inc: 403 Client Error: Forbidden for url: https://www.crunchbase.com/organization/keen-pump-company-inc
+2025-02-10 19:19:28,001 - ERROR - Error scraping https://www.crunchbase.com/organization/central-pump-company: 403 Client Error: Forbidden for url: https://www.crunchbase.com/organization/central-pump-company
+2025-02-10 19:19:28,477 - ERROR - Error scraping https://www.crunchbase.com/organization/amt-pump-company: 403 Client Error: Forbidden for url: https://www.crunchbase.com/organization/amt-pump-company
+2025-02-10 19:19:28,547 - ERROR - Error scraping https://www.crunchbase.com/organization/krum-pump-equipment-co: 403 Client Error: Forbidden for url: https://www.crunchbase.com/organization/krum-pump-equipment-co
+2025-02-10 19:19:28,632 - ERROR - Error scraping https://www.crunchbase.com/organization/general-pump-company: 403 Client Error: Forbidden for url: https://www.crunchbase.com/organization/general-pump-company
+2025-02-10 19:19:29,190 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:29,194 - INFO - Summarizing sources...
+2025-02-10 19:19:29,195 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:19:35,363 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:35,366 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:19:36,161 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:36,790 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:37,710 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:37,715 - INFO - Performing web search with query: Pump company LinkedIn profile
+2025-02-10 19:19:46,930 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:46,934 - INFO - Summarizing sources...
+2025-02-10 19:19:46,935 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:19:52,152 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:52,154 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:19:53,011 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:53,997 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:54,629 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:19:54,636 - INFO - Performing web search with query: Pump financial data and funding rounds
+2025-02-10 19:19:56,953 - ERROR - Error scraping https://www.zoominfo.com/financial/pump-supply-inc/344352424: 403 Client Error: Forbidden for url: https://www.zoominfo.com/financial/pump-supply-inc/344352424
+2025-02-10 19:20:01,491 - ERROR - Error scraping https://pitchbook.com/profiles/company/593602-12: 403 Client Error: Forbidden for url: https://pitchbook.com/profiles/company/593602-12
+2025-02-10 19:20:02,282 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:20:02,293 - INFO - Summarizing sources...
+2025-02-10 19:20:02,294 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:20:10,275 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:20:10,277 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:20:11,064 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:20:14,268 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:20:14,272 - INFO - Finalizing research summary...
+2025-02-10 19:20:15,202 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:20:15,214 - INFO - 127.0.0.1 - - [10/Feb/2025 19:20:15] "POST /research HTTP/1.1" 200 -
+2025-02-10 19:24:04,828 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/web_scraper.py', reloading
+2025-02-10 19:24:04,836 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/web_scraper.py', reloading
+2025-02-10 19:24:05,801 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:24:10,267 - WARNING -  * Debugger is active!
+2025-02-10 19:24:10,278 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:24:19,934 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:19,958 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:24:23,344 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:23,356 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:24:24,693 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:24,699 - INFO - Performing web search with query: site:pump.co/about company background and mission
+2025-02-10 19:24:32,593 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:32,597 - INFO - Summarizing sources...
+2025-02-10 19:24:32,598 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:24:34,431 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:34,434 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:24:35,089 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:35,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:36,315 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:24:36,319 - INFO - Performing web search with query: site:pump.co/blog latest articles and insights
+2025-02-10 19:24:38,433 - INFO - 127.0.0.1 - - [10/Feb/2025 19:24:38] "[35m[1mPOST /research HTTP/1.1[0m" 500 -
+2025-02-10 19:25:16,436 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/research/web_scraper.py', reloading
+2025-02-10 19:25:17,020 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:25:20,055 - ERROR - Error initializing research agent: Tool.__init__() got an unexpected keyword argument 'is_async'
+2025-02-10 19:25:29,322 - ERROR - Error initializing research agent: Tool.__init__() got an unexpected keyword argument 'is_async'
+2025-02-10 19:26:11,857 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-10 19:26:11,857 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 19:26:11,863 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 19:26:14,839 - WARNING -  * Debugger is active!
+2025-02-10 19:26:14,847 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 19:26:18,001 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:18,025 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:21,303 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:21,318 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:28,429 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:28,433 - INFO - Performing web search with query: site:pump.co about us
+2025-02-10 19:26:35,047 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:35,056 - INFO - Summarizing sources concurrently...
+2025-02-10 19:26:35,058 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:35,059 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:35,060 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:35,061 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:38,027 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:38,029 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:38,891 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:38,893 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:41,223 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:41,236 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:42,269 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:42,298 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:43,191 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:44,112 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:45,956 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:45,960 - INFO - Performing web search with query: site:pump.co careers
+2025-02-10 19:26:50,871 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:50,874 - INFO - Summarizing sources concurrently...
+2025-02-10 19:26:50,876 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,876 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,877 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,878 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,878 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,885 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:50,891 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:26:53,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:53,638 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:53,646 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:53,648 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:53,943 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:53,945 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:53,952 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:53,967 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:54,473 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:54,477 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:54,632 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:54,648 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:54,966 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:54,968 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:26:56,085 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:57,016 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:57,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:26:57,722 - INFO - Performing web search with query: site:pump.co blog
+2025-02-10 19:27:02,852 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:02,856 - INFO - Summarizing sources concurrently...
+2025-02-10 19:27:02,858 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,859 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,859 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,866 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,871 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,872 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,873 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,879 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,880 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:02,884 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:06,124 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,132 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:06,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,243 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:06,398 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,402 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:06,535 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,541 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:06,590 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,597 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:06,919 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:06,924 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:07,767 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:07,769 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:08,383 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:08,385 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:12,990 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:12,991 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:12,995 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:12,997 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:13,755 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:14,421 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:14,993 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:14,998 - INFO - Performing web search with query: financial data site:crunchbase.com pump
+2025-02-10 19:27:19,191 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:19,224 - INFO - Summarizing sources concurrently...
+2025-02-10 19:27:19,225 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,226 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,227 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,227 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,228 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,228 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,229 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,230 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,231 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:19,238 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:22,361 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:22,369 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:22,681 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:22,684 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:22,889 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:22,890 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:23,051 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:23,054 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:23,106 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:23,109 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:24,357 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:24,360 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:24,373 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:24,376 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:24,849 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:24,852 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:25,595 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:25,599 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:26,602 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:26,644 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:27,742 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:28,482 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:29,144 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:29,148 - INFO - Performing web search with query: LinkedIn profile pump.co
+2025-02-10 19:27:33,235 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:33,248 - INFO - Summarizing sources concurrently...
+2025-02-10 19:27:33,250 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,255 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,261 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,261 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,262 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,268 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,268 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,269 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,269 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,275 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,275 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:33,280 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:36,483 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:36,485 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:36,487 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:36,629 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:36,631 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:36,632 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:37,259 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:37,261 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:37,565 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:37,567 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:37,793 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:37,828 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:37,830 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:37,840 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:38,432 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:38,439 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:38,481 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:38,484 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:39,513 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:39,538 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:39,964 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:39,965 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:39,968 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:39,972 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:40,362 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:40,366 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:40,422 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:40,435 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:41,575 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:41,584 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:42,426 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:43,104 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:44,325 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:44,330 - INFO - Performing web search with query: pump company news mentions
+2025-02-10 19:27:50,429 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:50,456 - INFO - Summarizing sources concurrently...
+2025-02-10 19:27:50,457 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,458 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,459 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,459 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,460 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,460 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,461 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,461 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,466 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,467 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,467 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:50,468 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:53,446 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:53,453 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:53,455 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:54,155 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,157 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,158 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:54,296 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,310 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,315 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:54,591 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,595 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,597 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 19:27:54,715 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,718 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,721 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,737 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,822 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,826 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:54,836 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:54,838 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:55,078 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:55,080 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:56,002 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:56,005 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:57,330 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:57,330 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:57,333 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:57,351 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:57,354 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:57,358 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:57,844 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:57,847 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:27:58,251 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:27:58,254 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:28:01,313 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:28:01,321 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 19:28:02,380 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:28:03,440 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:28:03,458 - INFO - Finalizing research summary...
+2025-02-10 19:28:04,395 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 19:28:04,404 - INFO - 127.0.0.1 - - [10/Feb/2025 19:28:04] "POST /research HTTP/1.1" 200 -
