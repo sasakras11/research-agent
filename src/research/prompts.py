@@ -28,10 +28,10 @@ class ResearchPrompts:
     3. The *type* of software solution that would be most appropriate (e.g., "CRM", "Marketing Automation", "Data Analytics", "Communication Platform").
     It is VERY IMPORTANT to provide a software solution category for each challenge.
 
-    For the recommended software solution, also provide:
-    - A detailed description of the software's functionality and how it addresses the challenge. Be specific about how the software would work in this company's context.
-    - Key features that the software should include. List at least 3-5 key features.
-    - Potential implementation considerations (e.g., integration with existing systems, training requirements).
+    For the recommended software solution, you MUST also provide:
+    - A detailed description of the software's functionality and how it directly addresses the challenge in the context of THIS SPECIFIC company. Aim for 2-3 sentences.
+    - Key features that the software should include. List at least 3-5 key features that are particularly relevant to this company's needs. These features should be specific and not generic.
+    - Potential implementation considerations (e.g., integration with existing systems, training requirements, data migration). Aim for 1-2 sentences.
 
     Example Output:
     {{
@@ -44,10 +44,10 @@ class ResearchPrompts:
                 "context": "As a lead generation service provider...",
                 "reasoning": "Weak lead qualification can result in wasted marketing...",
                 "software_solution_category": "CRM",
-                "solution_description": "A CRM system would help Ak-Leadz...",
-                "solution_key_features": ["Lead scoring", "Automated email sequences", "Integration with LinkedIn Sales Navigator"],
-                "solution_implementation_considerations": "Integration with existing marketing tools...",
-                "sources": ["supporting URLs..."]
+                "solution_description": "A CRM system would help Ak-Leadz streamline their lead qualification process by automating lead scoring and providing a centralized platform for managing lead interactions. This would enable them to focus on high-quality leads and improve their overall efficiency.",
+                "solution_key_features": ["Lead scoring based on engagement", "Automated email sequences for lead nurturing", "Integration with LinkedIn Sales Navigator for lead enrichment", "Reporting and analytics dashboard", "Task management and reminders"],
+                "solution_implementation_considerations": "Integration with existing marketing tools like HubSpot or Mailchimp would be necessary. Training would be required for the sales team to effectively use the CRM.",
+                "sources": ["https://example.com/source1", "https://example.com/source2"]
             }}
         ]
     }}
