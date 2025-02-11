@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template, request, jsonify
 from src.research.agent import research_agent
-from src.research.dependencies import ResearchDeps
-from src.research.prompts import ResearchPrompts
 import asyncio
 import nest_asyncio
 
@@ -17,28 +15,24 @@ def index():
 @main.route('/research', methods=['POST'])
 def research():
     website = request.form.get('website')
-    if not website:
-        return jsonify({'error': 'Website URL is required'}), 400
+    titles = request.form.get('titles')
+    
+    if not website or not titles:
+        return jsonify({'error': 'Both website URL and titles are required'}), 400
 
-    # Initialize research dependencies
-    research_deps = ResearchDeps(
-        company_website=website,
-        prompt_template=ResearchPrompts.MAIN_RESEARCH_TEMPLATE
-    )
-
-    # Run research in an event loop
     try:
         # Create new event loop for this thread
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         
+        # Use process_company instead of run
         result = loop.run_until_complete(
-            research_agent.run(website, deps=research_deps)  # Note: using run instead of run_sync
+            research_agent.process_company(website, titles)
         )
         
         return jsonify({
-            'summary': research_deps.final_summary,
-            'success': True
+            'success': True,
+            **result  # This includes both company and people data
         })
     except Exception as e:
         return jsonify({

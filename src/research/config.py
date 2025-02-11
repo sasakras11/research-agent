@@ -19,6 +19,10 @@ class Config:
         
         if not tavily_key or not tavily_key.startswith('tvly-'):
             raise ConfigurationError("Invalid or missing TAVILY_API_KEY")
+        
+        findymail_key = os.getenv('FINDYMAIL_API_KEY')
+        if not findymail_key:
+            raise ConfigurationError("Invalid or missing FINDYMAIL_API_KEY")
 
     @staticmethod
     def get_api_key(key_name: str) -> Optional[str]:

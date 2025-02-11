@@ -17,6 +17,11 @@
                        name="website" 
                        placeholder="Enter company website URL"
                        required>
+                <input type="text"
+                       id="titles"
+                       name="titles"
+                       placeholder="Enter titles (comma-separated)"
+                       required>
                 <button type="submit">Research</button>
             </div>
         </form>
@@ -26,7 +31,8 @@
         </div>
 
         <div id="results">
-            <!-- Results will be inserted here -->
+            <div id="companyInfo"></div>
+            <div id="peopleInfo"></div>
         </div>
     </div>
 
@@ -35,27 +41,50 @@
             e.preventDefault();
             
             const loading = document.getElementById('loading');
-            const results = document.getElementById('results');
-            const form = e.target;
+            const companyInfo = document.getElementById('companyInfo');
+            const peopleInfo = document.getElementById('peopleInfo');
             
             loading.style.display = 'block';
-            results.innerHTML = '';
+            companyInfo.innerHTML = '';
+            peopleInfo.innerHTML = '';
 
             try {
                 const response = await fetch('/research', {
                     method: 'POST',
-                    body: new FormData(form)
+                    body: new FormData(e.target)
                 });
                 
                 const data = await response.json();
                 
                 if (data.success) {
-                    results.innerHTML = `<div class="summary">${data.summary}</div>`;
+                    // Display company info
+                    companyInfo.innerHTML = `
+                        <h2>Company Information</h2>
+                        <div class="description">${data.company.description}</div>
+                    `;
+                    
+                    // Display people info
+                    if (data.people && data.people.length > 0) {
+                        peopleInfo.innerHTML = `
+                            <h2>People Found</h2>
+                            <div class="people-list">
+                                ${data.people.map(person => `
+                                    <div class="person">
+                                        <strong>${person.first_name} ${person.last_name}</strong>
+                                        ${person.email ? `<div>Email: ${person.email}</div>` : ''}
+                                        ${person.linkedin_url ? `<div>LinkedIn: <a href="${person.linkedin_url}" target="_blank">Profile</a></div>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    } else {
+                        peopleInfo.innerHTML = '<p>No matching people found.</p>';
+                    }
                 } else {
-                    results.innerHTML = `<div class="error">${data.error}</div>`;
+                    companyInfo.innerHTML = `<div class="error">${data.error}</div>`;
                 }
             } catch (error) {
-                results.innerHTML = `<div class="error">An error occurred: ${error.message}</div>`;
+                companyInfo.innerHTML = `<div class="error">An error occurred: ${error.message}</div>`;
             } finally {
                 loading.style.display = 'none';
             }
