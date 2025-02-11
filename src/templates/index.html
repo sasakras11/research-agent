@@ -61,6 +61,85 @@
                     companyInfo.innerHTML = `
                         <h2>Company Information</h2>
                         <div class="description">${data.company.description}</div>
+                        
+                        <h3>Company-Specific Challenges</h3>
+                        <div class="challenges">
+                            ${data.company.challenges.map(challenge => `
+                                <div class="challenge ${challenge.impact_level.toLowerCase()}">
+                                    <div class="challenge-header">
+                                        <strong>${challenge.category}</strong>
+                                        <span class="impact ${challenge.impact_level.toLowerCase()}">${challenge.impact_level}</span>
+                                        <span class="timeframe">${challenge.timeframe}</span>
+                                    </div>
+                                    <p class="description">${challenge.description}</p>
+                                    <div class="challenge-details">
+                                        <h4>Context & Reasoning</h4>
+                                        <p class="context">${challenge.context}</p>
+                                        <p class="reasoning">${challenge.reasoning}</p>
+                                        
+                                        <div class="solution-section">
+                                            <h4>Recommended Solution: ${challenge.solution.name}</h4>
+                                            <p class="solution-description">${challenge.solution.description}</p>
+                                            
+                                            <h5>Key Features Needed:</h5>
+                                            <ul class="features-list">
+                                                ${challenge.solution.key_features.map(feature => `
+                                                    <li>${feature}</li>
+                                                `).join('')}
+                                            </ul>
+
+                                            <div class="implementation-details">
+                                                <p><strong>Implementation Timeline:</strong> ${challenge.solution.implementation_time}</p>
+                                                <p><strong>Integration Points:</strong></p>
+                                                <ul>
+                                                    ${challenge.solution.integration_points.map(point => `
+                                                        <li>${point}</li>
+                                                    `).join('')}
+                                                </ul>
+                                            </div>
+
+                                            <div class="impact-analysis">
+                                                <h5>Potential Impact:</h5>
+                                                <div class="impact-scenarios">
+                                                    <div class="impact-scenario minimum">
+                                                        <h6>Minimum Impact</h6>
+                                                        <p>${challenge.solution.impact.minimum}</p>
+                                                    </div>
+                                                    <div class="impact-scenario expected">
+                                                        <h6>Expected Impact</h6>
+                                                        <p>${challenge.solution.impact.expected}</p>
+                                                    </div>
+                                                    <div class="impact-scenario maximum">
+                                                        <h6>Maximum Potential</h6>
+                                                        <p>${challenge.solution.impact.maximum}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="impact-metrics">
+                                                    <h6>Key Metrics:</h6>
+                                                    <ul>
+                                                        ${challenge.solution.impact.metrics.map(metric => `
+                                                            <li>${metric}</li>
+                                                        `).join('')}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h4>Recommended Solution Type: ${challenge.solution_type}</h4>
+                                        </div>
+
+                                        ${challenge.sources.length > 0 ? `
+                                            <div class="sources">
+                                                <h4>Supporting Evidence:</h4>
+                                                <ul>
+                                                    ${challenge.sources.map(source => `
+                                                        <li><a href="${source}" target="_blank">Source</a></li>
+                                                    `).join('')}
+                                                </ul>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
                     `;
                     
                     // Display people info

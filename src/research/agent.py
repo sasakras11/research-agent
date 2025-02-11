@@ -5,9 +5,10 @@ from litellm import completion
 from tavily import TavilyClient
 import json
 import logging
+import os
 from .web_scraper import WebScraper
 from .config import Config
-from .models import CompanyInfo, PersonInfo
+from .models import CompanyInfo, PersonInfo, Challenge  # Add Challenge to imports
 from .email_finder import EmailFinder
 from .prompts import ResearchPrompts  # Add this import
 
@@ -18,37 +19,105 @@ class CompanyResearchAgent:
         self.web_scraper = WebScraper()
         self.tavily_client = TavilyClient(api_key=Config.get_api_key('TAVILY_API_KEY'))
         self.email_finder = EmailFinder()
+        self.solutions = self.load_solutions()
+
+    def load_solutions(self):
+        """Load software solutions from JSON file"""
+        try:
+            with open("solutions.json", "r") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            logger.error("solutions.json not found")
+            return {}
+        except json.JSONDecodeError:
+            logger.error("Invalid JSON in solutions.json")
+            return {}
 
     async def get_company_description(self, website: str) -> CompanyInfo:
-        """Get basic company description from website"""
+        """Get basic company description and analyze specific challenges"""
+        # Get basic description
         content = await self.web_scraper.get_page_content(website)
         
-        # Simple search for company overview
-        search_results = self.tavily_client.search(
+        # Gather comprehensive company context
+        company_searches = [
             f"what does {website} company do",
-            max_results=2
-        )
+            f"{website} company size employees funding",
+            f"{website} company recent news developments",
+            f"{website} company technology stack infrastructure"
+        ]
         
-        # Combine and summarize information
-        combined_info = f"""
-        Website Content: {content or ''}
-        Search Results: {json.dumps([r['content'] for r in search_results['results']])}
-        """
+        all_results = []
+        for query in company_searches:
+            results = self.tavily_client.search(query, max_results=2)
+            all_results.extend(results["results"])
         
-        response = completion(
+        combined_info = {
+            "website_content": content or "",
+            "search_results": [r["content"] for r in all_results],
+            "domain": website
+        }
+        
+        # Get company description
+        description_response = completion(
             model="gpt-4o-mini",
             messages=[{
                 "role": "system",
                 "content": ResearchPrompts.COMPANY_DESCRIPTION
             }, {
                 "role": "user",
-                "content": combined_info
+                "content": json.dumps(combined_info)
             }]
         )
         
+        description = description_response.choices[0].message.content
+
+        # Analyze company-specific challenges with full context
+        challenges_response = completion(
+            model="gpt-4o-mini",
+            messages=[{
+                "role": "system",
+                "content": ResearchPrompts.CHALLENGES_ANALYSIS
+            }, {
+                "role": "user",
+                "content": json.dumps({
+                    "company_description": description,
+                    "context": combined_info
+                })
+            }],
+            response_format={"type": "json_object"}
+        )
+        
+        challenges_data = json.loads(challenges_response.choices[0].message.content)
+        
+        challenges = []
+        for c in challenges_data.get("challenges", []):
+            solution_type = c.get("solution_type", "N/A")  # Default value if solution_type is missing
+            solution = self.solutions.get(solution_type, {})  # Get solution details from the loaded solutions
+            
+            challenges.append(Challenge(
+                category=c.get("category", "N/A"),
+                description=c.get("description", "N/A"),
+                impact_level=c.get("impact_level", "N/A"),
+                timeframe=c.get("timeframe", "N/A"),
+                context=c.get("context", "N/A"),
+                reasoning=c.get("reasoning", "N/A"),
+                solution_type=solution_type,
+                solution_name=solution.get("name", "N/A"),
+                solution_description=solution.get("description", "N/A"),
+                solution_key_features=solution.get("key_features", []),
+                solution_implementation_time=solution.get("implementation_time", "N/A"),
+                solution_integration_points=solution.get("integration_points", []),
+                solution_impact_minimum=solution.get("impact", {}).get("minimum", "N/A"),
+                solution_impact_expected=solution.get("impact", {}).get("expected", "N/A"),
+                solution_impact_maximum=solution.get("impact", {}).get("maximum", "N/A"),
+                solution_impact_metrics=solution.get("impact", {}).get("metrics", []),
+                sources=c.get("sources", [])
+            ))
+        
         return CompanyInfo(
             website=website,
-            description=response.choices[0].message.content
+            description=description,
+            challenges=challenges
         )
 
     def parse_titles(self, titles_input: str) -> List[str]:

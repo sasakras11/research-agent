@@ -35,9 +35,43 @@ class CompanyResearch(BaseModel):
     metrics: dict = {}
     last_updated: datetime = datetime.now()
 
+class SolutionImpact(BaseModel):
+    minimum: str  # Minimum expected improvement
+    expected: str  # Expected/average improvement
+    maximum: str  # Best case scenario
+    metrics: List[str]  # Key metrics that would improve
+
+class SolutionRecommendation(BaseModel):
+    name: str  # Name of the software solution
+    description: str  # What the solution does
+    key_features: List[str]  # Main features needed
+    implementation_time: str  # Estimated implementation timeline
+    integration_points: List[str]  # Where it would integrate
+    impact: SolutionImpact  # Potential impact analysis
+
+class Challenge(BaseModel):
+    category: str  # "OPERATIONAL" | "BUSINESS" | "TECHNICAL"
+    description: str
+    impact_level: str
+    timeframe: str
+    context: str
+    reasoning: str
+    solution_type: str  # The *type* of software solution (e.g., CRM)
+    solution_name: Optional[str] = None
+    solution_description: Optional[str] = None
+    solution_key_features: List[str] = []
+    solution_implementation_time: Optional[str] = None
+    solution_integration_points: List[str] = []
+    solution_impact_minimum: Optional[str] = None
+    solution_impact_expected: Optional[str] = None
+    solution_impact_maximum: Optional[str] = None
+    solution_impact_metrics: List[str] = []
+    sources: List[str] = []
+
 class CompanyInfo(BaseModel):
     website: str
     description: str
+    challenges: List[Challenge] = []
 
 class PersonInfo(BaseModel):
     first_name: str

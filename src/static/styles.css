@@ -1,0 +1,101 @@
+.challenge-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.challenge-details h4 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.reasoning {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.sources {
+    font-size: 0.9em;
+}
+
+.sources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sources li {
+    margin: 0.25rem 0;
+}
+
+.solution-section {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0f8ff;
+    border-left: 4px solid #0066cc;
+    border-radius: 4px;
+}
+
+.benefits-list {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.benefits-list li {
+    margin: 0.25rem 0;
+    color: #2c5282;
+}
+
+.implementation {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.impact-analysis {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.impact-scenarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.impact-scenario {
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.impact-scenario.minimum {
+    background: #fff3e0;
+}
+
+.impact-scenario.expected {
+    background: #e3f2fd;
+}
+
+.impact-scenario.maximum {
+    background: #e8f5e9;
+}
+
+.impact-metrics ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.impact-metrics li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.impact-metrics li::before {
+    content: "📈";
+    position: absolute;
+    left: 0;
+}
