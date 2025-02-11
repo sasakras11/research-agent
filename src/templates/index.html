@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Research Tool</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<style>
+        .challenge {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .high {
+            background-color: #fdd;
+        }
+        .medium {
+            background-color: #ffffe0;
+        }
+        .low {
+            background-color: #dfd;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -58,107 +75,44 @@
                 
                 if (data.success) {
                     // Display company info
-                    companyInfo.innerHTML = `
-                        <h2>Company Information</h2>
-                        <div class="description">${data.company.description}</div>
-                        
-                        <h3>Company-Specific Challenges</h3>
-                        <div class="challenges">
-                            ${data.company.challenges.map(challenge => `
-                                <div class="challenge ${challenge.impact_level.toLowerCase()}">
-                                    <div class="challenge-header">
-                                        <strong>${challenge.category}</strong>
-                                        <span class="impact ${challenge.impact_level.toLowerCase()}">${challenge.impact_level}</span>
-                                        <span class="timeframe">${challenge.timeframe}</span>
-                                    </div>
-                                    <p class="description">${challenge.description}</p>
-                                    <div class="challenge-details">
-                                        <h4>Context & Reasoning</h4>
-                                        <p class="context">${challenge.context}</p>
-                                        <p class="reasoning">${challenge.reasoning}</p>
-                                        
-                                        <div class="solution-section">
-                                            <h4>Recommended Solution: ${challenge.solution.name}</h4>
-                                            <p class="solution-description">${challenge.solution.description}</p>
-                                            
-                                            <h5>Key Features Needed:</h5>
-                                            <ul class="features-list">
-                                                ${challenge.solution.key_features.map(feature => `
-                                                    <li>${feature}</li>
-                                                `).join('')}
-                                            </ul>
-
-                                            <div class="implementation-details">
-                                                <p><strong>Implementation Timeline:</strong> ${challenge.solution.implementation_time}</p>
-                                                <p><strong>Integration Points:</strong></p>
-                                                <ul>
-                                                    ${challenge.solution.integration_points.map(point => `
-                                                        <li>${point}</li>
-                                                    `).join('')}
-                                                </ul>
-                                            </div>
-
-                                            <div class="impact-analysis">
-                                                <h5>Potential Impact:</h5>
-                                                <div class="impact-scenarios">
-                                                    <div class="impact-scenario minimum">
-                                                        <h6>Minimum Impact</h6>
-                                                        <p>${challenge.solution.impact.minimum}</p>
-                                                    </div>
-                                                    <div class="impact-scenario expected">
-                                                        <h6>Expected Impact</h6>
-                                                        <p>${challenge.solution.impact.expected}</p>
-                                                    </div>
-                                                    <div class="impact-scenario maximum">
-                                                        <h6>Maximum Potential</h6>
-                                                        <p>${challenge.solution.impact.maximum}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="impact-metrics">
-                                                    <h6>Key Metrics:</h6>
-                                                    <ul>
-                                                        ${challenge.solution.impact.metrics.map(metric => `
-                                                            <li>${metric}</li>
-                                                        `).join('')}
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h4>Recommended Solution Type: ${challenge.solution_type}</h4>
-                                        </div>
-
-                                        ${challenge.sources.length > 0 ? `
-                                            <div class="sources">
-                                                <h4>Supporting Evidence:</h4>
-                                                <ul>
-                                                    ${challenge.sources.map(source => `
-                                                        <li><a href="${source}" target="_blank">Source</a></li>
-                                                    `).join('')}
-                                                </ul>
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
+                    let companyHtml = `<h2>Company Information</h2>
+                                       <div class="description">${data.company.description}</div>
+                                       <h3>Most Critical Challenges</h3>`;
                     
-                    // Display people info
-                    if (data.people && data.people.length > 0) {
-                        peopleInfo.innerHTML = `
-                            <h2>People Found</h2>
-                            <div class="people-list">
-                                ${data.people.map(person => `
-                                    <div class="person">
-                                        <strong>${person.first_name} ${person.last_name}</strong>
-                                        ${person.email ? `<div>Email: ${person.email}</div>` : ''}
-                                        ${person.linkedin_url ? `<div>LinkedIn: <a href="${person.linkedin_url}" target="_blank">Profile</a></div>` : ''}
-                                    </div>
-                                `).join('')}
+                    data.company.challenges.forEach(challenge => {
+                        const impactLevel = challenge.impact_level ? challenge.impact_level.toLowerCase() : 'unknown';
+                        companyHtml += `
+                            <div class="challenge ${impactLevel}">
+                                <p class="description">${challenge.description}</p>
+                                <p><strong>Impact Level:</strong> ${challenge.impact_level || 'Unknown'}</p>
+                                <p><strong>Recommended Solution Type:</strong> ${challenge.software_solution_category || 'N/A'}</p>
+                                <p><strong>Solution Description:</strong> ${challenge.solution_description || 'N/A'}</p>
+                                <p><strong>Key Features:</strong> ${challenge.solution_key_features ? challenge.solution_key_features.join(', ') : 'N/A'}</p>
+                                <p><strong>Implementation Considerations:</strong> ${challenge.solution_implementation_considerations || 'N/A'}</p>
                             </div>
                         `;
+                    });
+                    companyInfo.innerHTML = companyHtml;
+
+                    // Display people info
+                    let peopleHtml = '';
+                    if (data.people && data.people.length > 0) {
+                        peopleHtml = `<h2>People Found</h2><div class="people-list">`;
+                        data.people.forEach(person => {
+                            peopleHtml += `
+                                <div class="person">
+                                    <strong>${person.first_name} ${person.last_name}</strong>
+                                    ${person.email ? `<div>Email: ${person.email}</div>` : ''}
+                                    ${person.linkedin_url ? `<div>LinkedIn: <a href="${person.linkedin_url}" target="_blank">Profile</a></div>` : ''}
+                                </div>
+                            `;
+                        });
+                        peopleHtml += `</div>`;
                     } else {
-                        peopleInfo.innerHTML = '<p>No matching people found.</p>';
+                        peopleHtml = '<p>No matching people found.</p>';
                     }
+                    peopleInfo.innerHTML = peopleHtml;
+
                 } else {
                     companyInfo.innerHTML = `<div class="error">${data.error}</div>`;
                 }

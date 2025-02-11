@@ -56,10 +56,11 @@ class Challenge(BaseModel):
     timeframe: str
     context: str
     reasoning: str
-    solution_type: str  # The *type* of software solution (e.g., CRM)
-    solution_name: Optional[str] = None
+    software_solution_category: str  # The *type* of software solution (e.g., CRM)
     solution_description: Optional[str] = None
     solution_key_features: List[str] = []
+    solution_implementation_considerations: Optional[str] = None
+    solution_name: Optional[str] = None
     solution_implementation_time: Optional[str] = None
     solution_integration_points: List[str] = []
     solution_impact_minimum: Optional[str] = None

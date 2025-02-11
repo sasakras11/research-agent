@@ -84,14 +84,19 @@ class CompanyResearchAgent:
                     "context": combined_info
                 })
             }],
-            response_format={"type": "json_object"}
+            response_format={"type": "json_object"},
+            temperature=0.7  # Add temperature setting
         )
         
         challenges_data = json.loads(challenges_response.choices[0].message.content)
-        
+        logger.debug(f"Raw JSON response: {challenges_data}")  # Log the raw JSON
+
         challenges = []
         for c in challenges_data.get("challenges", []):
-            solution_type = c.get("solution_type", "N/A")  # Default value if solution_type is missing
+            solution_type = c.get("software_solution_category", "N/A")  # Default value if solution_type is missing
+            if solution_type == "N/A":
+                logger.warning(f"Missing software_solution_category for challenge: {c.get('description', 'No description')}")
+            logger.debug(f"Solution type: {solution_type}")  # Log the solution type
             solution = self.solutions.get(solution_type, {})  # Get solution details from the loaded solutions
             
             challenges.append(Challenge(
@@ -101,10 +106,11 @@ class CompanyResearchAgent:
                 timeframe=c.get("timeframe", "N/A"),
                 context=c.get("context", "N/A"),
                 reasoning=c.get("reasoning", "N/A"),
-                solution_type=solution_type,
+                software_solution_category=solution_type,
+                solution_description=c.get("solution_description", "N/A"),
+                solution_key_features=c.get("solution_key_features", []),
+                solution_implementation_considerations=c.get("solution_implementation_considerations", "N/A"),
                 solution_name=solution.get("name", "N/A"),
-                solution_description=solution.get("description", "N/A"),
-                solution_key_features=solution.get("key_features", []),
                 solution_implementation_time=solution.get("implementation_time", "N/A"),
                 solution_integration_points=solution.get("integration_points", []),
                 solution_impact_minimum=solution.get("impact", {}).get("minimum", "N/A"),
@@ -160,7 +166,15 @@ class CompanyResearchAgent:
             response_format={"type": "json_object"}
         )
         
-        name_data = json.loads(response.choices[0].message.content)
+        json_content = response.choices[0].message.content
+        logger.debug(f"JSON content: {json_content}")  # Log the JSON content
+        
+        name_data = json.loads(json_content)
+        
+        if not isinstance(name_data, dict):
+            logger.error(f"Could not extract name data from {linkedin_url} - Invalid JSON format")
+            return None
+            
         return PersonInfo(
             first_name=name_data.get('first_name', ''),
             last_name=name_data.get('last_name', ''),

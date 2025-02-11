@@ -30,6 +30,8 @@ def research():
             research_agent.process_company(website, titles)
         )
         
+        print("Result from research_agent.process_company:", result)  # Log the result
+        
         return jsonify({
             'success': True,
             **result  # This includes both company and people data
