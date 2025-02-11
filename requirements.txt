@@ -2,10 +2,10 @@ Flask==2.0.1
 aiohttp==3.7.4.post0
 beautifulsoup4==4.9.3
 nest-asyncio==1.5.1
-pydantic==1.8.2
-python-dotenv==0.19.1
 requests==2.32.3
 openai==1.61.1
 tavily-python==0.5.1
 pydantic-ai==0.0.1
 werkzeug==2.0.3
+pydantic>=1.9.0,<3
+python-dotenv==0.19.1
