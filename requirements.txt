@@ -3,7 +3,7 @@ aiohttp==3.7.4.post0
 beautifulsoup4==4.9.3
 nest-asyncio==1.5.1
 pydantic==1.8.2
-numpy==1.21.2
+numpy>=1.26.0
 numpydoc==1.1.0
 openai==1.61.1
 tavily-python==0.5.1
