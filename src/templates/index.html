@@ -4,52 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Research Tool</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Modern color scheme and base styles */
+        :root {
+            --bg-gradient-from: #0f172a;
+            --bg-gradient-to: #1e293b;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --border-color: rgba(148, 163, 184, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(to bottom right, var(--bg-gradient-from), var(--bg-gradient-to));
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Form styles */
+        .search-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Results styles */
+        .results {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
         .challenge {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            background: rgba(15, 23, 42, 0.5);
         }
-        .high {
-            background-color: #fdd;
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
-        .medium {
-            background-color: #ffffe0;
+
+        .impact-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
-        .low {
-            background-color: #dfd;
+
+        .impact-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .impact-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+        }
+
+        .impact-low {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Company Research Tool</h1>
-        
-        <form id="researchForm">
+        <header class="header">
+            <h1 class="title">Company Research Tool</h1>
+            <p class="subtitle">Analyze companies and discover business opportunities with AI-powered insights</p>
+        </header>
+
+        <form id="researchForm" class="search-form">
             <div class="input-group">
-                <input type="url" 
-                       id="website" 
-                       name="website" 
-                       placeholder="Enter company website URL"
-                       required>
-                <input type="text"
-                       id="titles"
-                       name="titles"
-                       placeholder="Enter titles (comma-separated)"
-                       required>
-                <button type="submit">Research</button>
+                <label for="website">Company Website</label>
+                <input type="url" id="website" name="website" placeholder="https://company.com" required>
             </div>
+
+            <div class="input-group">
+                <label for="titles">Job Titles</label>
+                <input type="text" id="titles" name="titles" placeholder="CEO, CTO, Marketing Director" required>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span class="spinner"></span>
+                <span class="btn-text">Research Company</span>
+            </button>
         </form>
 
-        <div id="loading" style="display: none;">
-            Researching... Please wait...
-        </div>
+        <div class="error" id="errorMessage"></div>
 
-        <div id="results">
-            <div id="companyInfo"></div>
-            <div id="peopleInfo"></div>
+        <div class="results" id="results">
+            <div class="card" id="companyInfo">
+                <h2>Company Information</h2>
+                <div id="companyDescription"></div>
+            </div>
+
+            <div id="challengesContainer"></div>
         </div>
     </div>
 
@@ -57,69 +240,75 @@
         document.getElementById('researchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const loading = document.getElementById('loading');
-            const companyInfo = document.getElementById('companyInfo');
-            const peopleInfo = document.getElementById('peopleInfo');
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const spinner = submitBtn.querySelector('.spinner');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const results = document.getElementById('results');
+            const errorMessage = document.getElementById('errorMessage');
+            const challengesContainer = document.getElementById('challengesContainer');
             
-            loading.style.display = 'block';
-            companyInfo.innerHTML = '';
-            peopleInfo.innerHTML = '';
+            // Show loading state
+            submitBtn.disabled = true;
+            spinner.style.display = 'block';
+            btnText.textContent = 'Analyzing...';
+            results.style.display = 'none';
+            errorMessage.style.display = 'none';
 
             try {
                 const response = await fetch('/research', {
                     method: 'POST',
-                    body: new FormData(e.target)
+                    body: new FormData(form)
                 });
                 
                 const data = await response.json();
                 
                 if (data.success) {
-                    // Display company info
-                    let companyHtml = `<h2>Company Information</h2>
-                                       <div class="description">${data.company.description}</div>
-                                       <h3>Most Critical Challenges</h3>`;
+                    // Display company description
+                    document.getElementById('companyDescription').textContent = data.company.description;
                     
-                    data.company.challenges.forEach(challenge => {
-                        const impactLevel = challenge.impact_level ? challenge.impact_level.toLowerCase() : 'unknown';
-                        companyHtml += `
-                            <div class="challenge ${impactLevel}">
-                                <p class="description">${challenge.description}</p>
-                                <p><strong>Impact Level:</strong> ${challenge.impact_level || 'Unknown'}</p>
-                                <p><strong>Recommended Solution Type:</strong> ${challenge.software_solution_category || 'N/A'}</p>
-                                <p><strong>Solution Description:</strong> ${challenge.solution_description || 'N/A'}</p>
-                                <p><strong>Key Features:</strong> ${challenge.solution_key_features ? challenge.solution_key_features.join(', ') : 'N/A'}</p>
-                                <p><strong>Implementation Considerations:</strong> ${challenge.solution_implementation_considerations || 'N/A'}</p>
+                    // Display challenges
+                    challengesContainer.innerHTML = data.company.challenges.map((challenge, index) => `
+                        <div class="card challenge">
+                            <div class="challenge-header">
+                                <h3>Challenge ${index + 1}</h3>
+                                <span class="impact-badge impact-${challenge.impact_level.toLowerCase()}">
+                                    ${challenge.impact_level}
+                                </span>
                             </div>
-                        `;
-                    });
-                    companyInfo.innerHTML = companyHtml;
-
-                    // Display people info
-                    let peopleHtml = '';
-                    if (data.people && data.people.length > 0) {
-                        peopleHtml = `<h2>People Found</h2><div class="people-list">`;
-                        data.people.forEach(person => {
-                            peopleHtml += `
-                                <div class="person">
-                                    <strong>${person.first_name} ${person.last_name}</strong>
-                                    ${person.email ? `<div>Email: ${person.email}</div>` : ''}
-                                    ${person.linkedin_url ? `<div>LinkedIn: <a href="${person.linkedin_url}" target="_blank">Profile</a></div>` : ''}
-                                </div>
-                            `;
-                        });
-                        peopleHtml += `</div>`;
-                    } else {
-                        peopleHtml = '<p>No matching people found.</p>';
-                    }
-                    peopleInfo.innerHTML = peopleHtml;
-
+                            <p>${challenge.description}</p>
+                            <div style="margin-top: 1rem;">
+                                <h4 style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                    Recommended Solution
+                                </h4>
+                                <p>${challenge.software_solution_category}</p>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <h4 style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                    Key Features
+                                </h4>
+                                <ul style="list-style-position: inside;">
+                                    ${challenge.solution_key_features.map(feature => 
+                                        `<li>${feature}</li>`
+                                    ).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    results.style.display = 'block';
                 } else {
-                    companyInfo.innerHTML = `<div class="error">${data.error}</div>`;
+                    errorMessage.textContent = data.error;
+                    errorMessage.style.display = 'block';
                 }
             } catch (error) {
-                companyInfo.innerHTML = `<div class="error">An error occurred: ${error.message}</div>`;
+                errorMessage.textContent = 'An error occurred while processing your request';
+                errorMessage.style.display = 'block';
             } finally {
-                loading.style.display = 'none';
+                // Reset button state
+                submitBtn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.textContent = 'Research Company';
             }
         });
     </script>
