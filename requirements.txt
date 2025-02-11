@@ -8,4 +8,3 @@ numpydoc==1.1.0
 openai==1.61.1
 tavily-python==0.5.1
 werkzeug==2.0.3  # Add this line to specify a compatible version
-# Add other essential dependencies here
