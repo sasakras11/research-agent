@@ -196,8 +196,6 @@ notebook==6.4.4
 notebook_shim==0.1.0
 numba==0.54.1
 numexpr==2.7.3
-numpy==1.21.2
-numpydoc==1.1.0
 openai==1.61.1
 openpyxl==3.0.9
 overrides==6.1.0
