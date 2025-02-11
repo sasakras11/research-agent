@@ -376,3 +376,47 @@ LiteLLM completion() model= gpt-4o-mini; provider = openai
 2025-02-10 10:28:59,634 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-10 10:29:00,555 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-10 10:29:01,784 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:19,487 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:19,524 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:43:22,146 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:22,165 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:43:22,763 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:26,113 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:26,127 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:43:29,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:29,934 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:43:30,509 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:31,160 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:32,391 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:35,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:35,409 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:43:40,684 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:40,685 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:43:41,614 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:42,267 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:43,756 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:44,984 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:44,991 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:43:47,140 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:47,142 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:43:48,056 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:52,754 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:52,764 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:43:55,889 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:55,900 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:43:56,664 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:57,189 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:43:57,995 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:44:00,959 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:44:00,963 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 10:44:05,736 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:44:05,737 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 10:44:06,346 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:44:07,102 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 10:44:08,220 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

@@ -1,0 +1,60 @@
+2025-02-10 16:08:11,303 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-10 16:08:11,303 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 16:08:11,733 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 16:08:14,631 - WARNING -  * Debugger is active!
+2025-02-10 16:08:14,646 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 16:08:28,349 - INFO - 127.0.0.1 - - [10/Feb/2025 16:08:28] "GET / HTTP/1.1" 200 -
+2025-02-10 16:08:30,450 - INFO - 127.0.0.1 - - [10/Feb/2025 16:08:30] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2025-02-10 16:08:31,760 - INFO - 127.0.0.1 - - [10/Feb/2025 16:08:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-10 16:08:40,218 - INFO - 127.0.0.1 - - [10/Feb/2025 16:08:40] "[35m[1mPOST /research HTTP/1.1[0m" 500 -
+2025-02-10 16:10:32,104 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/routes.py', reloading
+2025-02-10 16:10:32,113 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/routes.py', reloading
+2025-02-10 16:10:33,032 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 16:10:36,626 - WARNING -  * Debugger is active!
+2025-02-10 16:10:36,635 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 16:10:42,070 - INFO - 127.0.0.1 - - [10/Feb/2025 16:10:42] "[35m[1mPOST /research HTTP/1.1[0m" 500 -
+2025-02-10 16:11:41,530 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/routes.py', reloading
+2025-02-10 16:11:41,539 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/src/routes.py', reloading
+2025-02-10 16:11:42,540 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 16:11:45,684 - WARNING -  * Debugger is active!
+2025-02-10 16:11:45,692 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 16:12:19,866 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-10 16:12:19,867 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 16:12:19,875 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 16:12:23,188 - WARNING -  * Debugger is active!
+2025-02-10 16:12:23,196 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 16:12:25,791 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/run.py', reloading
+2025-02-10 16:12:25,801 - INFO -  * Detected change in '/Users/alexander/projects/sdr-researcher/run.py', reloading
+2025-02-10 16:12:26,568 - INFO -  * Restarting with watchdog (fsevents)
+2025-02-10 16:12:29,455 - WARNING -  * Debugger is active!
+2025-02-10 16:12:29,463 - INFO -  * Debugger PIN: 114-925-490
+2025-02-10 16:12:39,172 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:39,203 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 16:12:42,590 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:42,605 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 16:12:43,177 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:43,181 - INFO - Performing web search with query: site:akleadz.com about us
+2025-02-10 16:12:47,617 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:47,624 - INFO - Summarizing sources...
+2025-02-10 16:12:47,625 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 16:12:49,873 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:49,876 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 16:12:50,604 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:51,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:52,640 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:12:52,644 - INFO - Performing web search with query: site:akleadz.com blog
+2025-02-10 16:13:03,248 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:13:03,251 - INFO - Summarizing sources...
+2025-02-10 16:13:03,252 - INFO - 
+LiteLLM completion() model= gpt-4o-mini; provider = openai
+2025-02-10 16:13:07,025 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:13:07,028 - INFO - Wrapper: Completed Call, calling success_handler
+2025-02-10 16:13:08,001 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:13:10,455 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:13:10,460 - INFO - Finalizing research summary...
+2025-02-10 16:13:11,269 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-10 16:13:11,275 - INFO - 127.0.0.1 - - [10/Feb/2025 16:13:11] "POST /research HTTP/1.1" 200 -
